@@ -1,4 +1,7 @@
+require("dotenv").config();
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { VueLoaderPlugin } = require("vue-loader");
+
 const path = require("path");
 
 module.exports = {
@@ -12,6 +15,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public", "index.html"),
     }),
+    new VueLoaderPlugin(),
   ],
   module: {
     rules: [
@@ -24,6 +28,10 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
+      },
+      {
+        test: /\.vue$/,
+        loader: "vue-loader",
       },
     ],
   },

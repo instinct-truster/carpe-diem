@@ -1,5 +1,5 @@
-import { createApp } from "./src/create-app";
+import { createApp } from "vue";
 
-const root = document.querySelector("#root");
-const app = createApp();
-root.appendChild(app);
+import AppRoot from "./src/app-root.vue";
+
+createApp(AppRoot).mount("#root");
